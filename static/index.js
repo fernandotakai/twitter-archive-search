@@ -15,14 +15,14 @@ function getTweets(page, callback) {
                              .append($("<a />").attr("href", tweet.url)
                                                .text("link"))
 
-            if(tweet.has_geo){
+            if(tweet.geo){
                 var mapsUrl = "http://maps.google.com?q=" + tweet.latitude + "," + tweet.longitude;
                 buttons.append($("<span/>").text(" - "))
                        .append($("<a />").attr("href", mapsUrl)
                                                .text("geo"))
             }
 
-            if(tweet.is_reply){
+            if(tweet.reply){
                 var replyUrl = "http://twitter.com/" + tweet.in_reply_to_name + "/status/" + tweet.in_reply_to_id; 
                 buttons.append($("<span/>").text(" - "))
                        .append($("<a />").attr("href", replyUrl)
