@@ -31,8 +31,10 @@ function getTweets(page, callback) {
                                                .text("in reply to"))
             }
 
+            var text = tweet.text.tweetify();
+
             $("<li/>")
-                     .append($("<span/>").html(tweet.text)).linkify()
+                     .append($("<span/>").html(text))
                      .append($("<br/>"))
                      .append(buttons)
                      .addClass("tweet")
