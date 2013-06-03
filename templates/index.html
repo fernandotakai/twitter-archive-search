@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Twitter Archive Searcher</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='bootstrap-responsive.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='index.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Part 1: Wrap all page content here -->
+        <div id="wrap">
+
+            <!-- Begin page content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Twitter Search</h1>
+                </div>                                               
+                <p>
+                <input id="search" class="search" type="text"></input>
+                </p>
+                
+                <div id="results">
+                    <ul>
+                    </ul>
+                </div>
+            <div class="more">
+                <a id="more" data-page="1" href="#">More</a>
+            </div>
+            </div>
+
+            <div id="push"></div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <p class="muted credit"></p>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+        <script src="{{ url_for('static', filename='jquery.timeago.js') }}"></script>
+        <script src="{{ url_for('static', filename='jquery.linkify.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+    </body>
+</html>
