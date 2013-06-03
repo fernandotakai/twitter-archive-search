@@ -1,6 +1,8 @@
 function getTweets(page, callback) {
-    $.getJSON("/search", {q: $("#search").val(), p:page}, function(data){
-        console.log(data.finished);
+    var q = $("#search").val();
+    $("#loading").show();
+
+    $.getJSON("/search", {q: q, p:page}, function(data){
         if(data.finished){
             $("#more").hide();
         }
@@ -35,15 +37,27 @@ function getTweets(page, callback) {
                      .append(buttons)
                      .addClass("tweet")
                      .appendTo("#results")
-         });
-         $("abbr").timeago();
-         if(callback){
-            callback();
-         }
+        });
+
+        $("abbr").timeago();
+
+        window.location.hash = q;
+        $("#loading").hide();
+
+        if(callback){
+           callback();
+        }
     })
 }
 
 $(document).ready(function(){
+
+    var hash = window.location.hash;
+
+    if(hash && hash.indexOf("|") > 0){
+        $("#search").val(hash.replace("#", ""));
+    }
+
     $("#search").keydown(function(e){
         if(e.keyCode === 13){
             $("#results > hr").remove()
