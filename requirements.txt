@@ -1,0 +1,4 @@
+Flask
+whoosh
+python-dateutil
+simplejson
